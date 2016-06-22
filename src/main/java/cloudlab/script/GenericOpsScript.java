@@ -21,7 +21,6 @@ import java.util.*;
 public class GenericOpsScript {
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("Waiting for server to initialize");
-        Thread.sleep(90000);
         System.out.println("Now it begins");
         Properties properties = new Properties();
         InputStream propIn = new FileInputStream(new File("config.properties"));
@@ -86,16 +85,11 @@ public class GenericOpsScript {
 
 // Check for success or error
         if (respIn.indicatesSuccess()) {
-
             System.out.println("The request succeeded :");
-
             System.out.println("\tresult : " + respIn.getResult());
-            System.out.println("\tid     : " + respIn.getID());
         } else {
             System.out.println("The request failed :");
-
             JSONRPC2Error err = respIn.getError();
-
             System.out.println("\terror.code    : " + err.getCode());
             System.out.println("\terror.message : " + err.getMessage());
             System.out.println("\terror.data    : " + err.getData());
