@@ -20,8 +20,6 @@ import java.util.*;
  */
 public class TestScript {
     public static void main(String[] args) throws InterruptedException, IOException {
-        System.out.println("Waiting for server to initialize");
-        Thread.sleep(90000);
         System.out.println("Now it begins");
         Properties properties = new Properties();
         InputStream propIn = new FileInputStream(new File("config.properties"));
