@@ -23,7 +23,6 @@ import java.util.*;
  */
 public class GenericOpsScript {
     public static void main(String[] args) throws IOException, InterruptedException {
-        System.out.println("Waiting for server to initialize");
         System.out.println("Now it begins");
         
         //Read the config.properties file to obtain the values required values
