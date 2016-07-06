@@ -34,7 +34,7 @@ public class GenericOpsScript {
         System.out.println("method = " + method);
 
         String[] requestParameters = {
-                properties.getProperty("keyPair"),
+                properties.getProperty("credentials"),
                 properties.getProperty("bucketName"),
                 properties.getProperty("username"),
                 properties.getProperty("publicIP"),
@@ -48,7 +48,7 @@ public class GenericOpsScript {
 
         System.out.println("params = " + params);
 
-        String id = properties.getProperty("keyPair");
+        String id = properties.getProperty("credentials");
 
         JSONRPC2Request reqOut = new JSONRPC2Request(method, params, id);
         String jsonString = reqOut.toString();
