@@ -36,7 +36,7 @@ public class WordPressOpsScript {
         properties.load(propIn);
 
         String[] requestParameters = {
-                properties.getProperty("keyPair"),
+                properties.getProperty("credentials"),
                 properties.getProperty("bucketName"),
                 properties.getProperty("username"),
                 properties.getProperty("publicIP")
