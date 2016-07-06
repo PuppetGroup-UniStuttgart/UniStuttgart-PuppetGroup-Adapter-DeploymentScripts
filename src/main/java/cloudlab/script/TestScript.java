@@ -15,8 +15,12 @@ import org.apache.http.message.BasicNameValuePair;
 import java.io.*;
 import java.util.*;
 
-/**
- * Created by shreyasbr on 31-05-2016.
+**
+ * TestScript: Invokes the JSON Adapter API in order to access the Test Service 
+ * provided by the Test gRPC API to check if the adapter handles all of proto3
+ * & gRPC features. 
+ *
+ * Created by PuppetGroup on 31-05-2016.
  */
 public class TestScript {
     public static void main(String[] args) throws InterruptedException, IOException {
