@@ -52,7 +52,7 @@ public class WordPressOpsScript {
 
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("requestParameters", requestParameters);
-		params.put("serviceName", "WordPressOps"));
+		params.put("serviceName", "WordPressOps");
 
 		System.out.println("params = " + params);
 
@@ -104,7 +104,7 @@ public class WordPressOpsScript {
 			System.out.println("\terror.message : " + err.getMessage());
 			System.out.println("\terror.data    : " + err.getData());
 		}
-		i++,
+		i++;
 	}
 
     }
