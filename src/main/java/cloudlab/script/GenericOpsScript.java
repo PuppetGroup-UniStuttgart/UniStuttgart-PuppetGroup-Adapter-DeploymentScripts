@@ -16,12 +16,17 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Created by shreyasbr on 26-05-2016.
+ * GenericOpsScript: Invokes the JSON Adapter API in order to access the GenericOps Service 
+ * provided by the Generic gRPC API to deploy any given generic service onto the EC2 instance. 
+ *
+ * Created by PuppetGroup on 26-05-2016.
  */
 public class GenericOpsScript {
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("Waiting for server to initialize");
         System.out.println("Now it begins");
+        
+        //Read the config.properties file to obtain the values required values
         Properties properties = new Properties();
         InputStream propIn = new FileInputStream(new File("config.properties"));
         properties.load(propIn);
