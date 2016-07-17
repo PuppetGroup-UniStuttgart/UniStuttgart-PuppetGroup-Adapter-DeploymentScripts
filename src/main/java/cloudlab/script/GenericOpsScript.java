@@ -16,15 +16,15 @@ import java.io.*;
 import java.util.*;
 
 /**
- * GenericOpsScript: Invokes the JSON Adapter API in order to access the GenericOps Service 
- * provided by the Generic gRPC API to deploy any given generic service onto the EC2 instance. 
+ * GenericOpsScript: Invokes the JSON Adapter API in order to access the GenericOps Service
+ * provided by the Generic gRPC API to deploy any given generic service onto the EC2 instance.
  *
  * Created by PuppetGroup on 26-05-2016.
  */
 public class GenericOpsScript {
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("Now it begins");
-        
+
         //Read the config.properties file to obtain the values required values
         Properties properties = new Properties();
         InputStream propIn = new FileInputStream(new File("config.properties"));
@@ -33,14 +33,13 @@ public class GenericOpsScript {
         String method = properties.getProperty("method");
         System.out.println("method = " + method);
 
-        String[] requestParameters = {
-                properties.getProperty("credentials"),
-                properties.getProperty("bucketName"),
-                properties.getProperty("username"),
-                properties.getProperty("publicIP"),
-                properties.getProperty("moduleName"),
-                properties.getProperty("installFile")
-        };
+        Map<String, Object> requestParameters = new HashMap<String, Object>();
+        requestParameters.put("credentials", properties.getProperty("credentials"));
+        requestParameters.put("bucketName", properties.getProperty("bucketName"));
+        requestParameters.put("username", properties.getProperty("username"));
+        requestParameters.put("publicIP", properties.getProperty("publicIP"));
+        requestParameters.put("moduleName", properties.getProperty("moduleName"));
+        requestParameters.put("installFile", properties.getProperty("installFile"));
 
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("requestParameters", requestParameters);
@@ -52,6 +51,7 @@ public class GenericOpsScript {
 
         JSONRPC2Request reqOut = new JSONRPC2Request(method, params, id);
         String jsonString = reqOut.toString();
+        System.out.println("jsonString = " + jsonString);
 
         String url = "http://localhost:8080/generic-adapter/request";
         HttpClient client = HttpClientBuilder.create().build();
