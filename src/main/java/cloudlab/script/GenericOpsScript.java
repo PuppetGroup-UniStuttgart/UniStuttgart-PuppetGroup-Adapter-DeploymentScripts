@@ -43,7 +43,6 @@ public class GenericOpsScript {
 
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("requestParameters", requestParameters);
-        params.put("serviceName", properties.getProperty("serviceName"));
 
         System.out.println("params = " + params);
 
